@@ -15,13 +15,10 @@ namespace UC2_Calculate_Employee_Wage
             Random random = new Random();
             //Computation
             int empCheck = random.Next(0, 2);
-            if (empCheck == IS_FULL_TIME)
+            switch(empCheck)
             {
-                empHrs = 8;
-            }
-            else
-            {
-                empHrs = 4;////Assuming part time hours = 4
+                case 0: empHrs = 8;
+                case 1; empHrs = 8;
             }
 
             empWage = empHrs * EMP_RATE_PER_HOUR;
