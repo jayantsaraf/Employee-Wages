@@ -9,26 +9,36 @@ namespace UC2_Calculate_Employee_Wage
             ////constants
             int IS_FULL_TIME = 1;
             int EMP_RATE_PER_HOUR = 20;
-            int totalEmpHrs = 0;
+            int DAYS = 1;
+
             ////variable
+            int totalHrs = 0;
             int empHrs = 0;
             int empWage = 0;
-            Random random = new Random();
-            //Computation
-            int empCheck = random.Next(0, 2);
-            if (empCheck == IS_FULL_TIME)
+            int totalEmpWage = 0;
+           
+            for (DAYS = 1; DAYS <= 20; DAYS+=1)
             {
-                empHrs = 8;
-                totalEmpHrs += empHrs;
+                while (totalHrs <= 100)
+                {
+                    Random random = new Random();
+                    int empCheck = random.Next(0, 2);
+                    if (empCheck== IS_FULL_TIME)
+                    {
+                        empHrs = 8;
+                        totalHrs += empHrs;
+                    }
+                    else
+                    {
+                        empHrs = 4;
+                        totalHrs += empHrs;
+                    }
+                }
+                empWage = totalHrs * EMP_RATE_PER_HOUR * DAYS;
+                totalEmpWage += empWage;
             }
-            else
-            {
-                empHrs = 8;////Assuming part time hours = 8
-                totalEmpHrs += empHrs;
-            }
+            Console.WriteLine("Total Employee Wage = " + totalEmpWage);
 
-            empWage = totalEmpHrs * EMP_RATE_PER_HOUR * 20; ////No. of days in month = 20
-            Console.WriteLine("Employee wage = " + empWage);
         }
     }
 }
